@@ -119,7 +119,7 @@ describe('Homework2', () => {
                 x: -100,
                 y: 10,
                 expected: 'Second quarter'
-            },
+            }
         ];
 
         testData.forEach(data => {
@@ -477,11 +477,7 @@ describe('Homework2', () => {
             {
                 number: 7,
                 expected: 3
-            },
-            // {
-            //     number: -5,
-            //     expected: 'Negative number input!'
-            // }
+            }
         ];
 
         testData.forEach(data => {
@@ -526,11 +522,7 @@ describe('Homework2', () => {
             {
                 number: 7,
                 expected: 3
-            },
-            // {
-            //     number: -5,
-            //     expected: 'Negative number input!'
-            // }
+            }
         ];
 
         testData.forEach(data => {

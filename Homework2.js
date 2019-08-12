@@ -13,7 +13,7 @@ const getQuarter = (x, y) => {
         result = "Fourth quarter";
     } else if (x === 0 && y === 0) {
         result = "Center";
-    } else if (x > 0 && y === 0 ) {
+    } else if (x > 0 && y === 0) {
         result = "Positive axis OX";
     } else if (x === 0 && y < 0) {
         result = "Negative axis OY";
@@ -179,7 +179,7 @@ const reverseNumber = number => {
 
 const findMinElemArray = array => {
 
-    if (array === undefined || !array.length)  {
+    if (array === void 0 || !array.length)  {
         return null;
     }
 
@@ -198,7 +198,7 @@ const findMinElemArray = array => {
 
 const findMaxElemArray = array => {
 
-    if (array === undefined || !array.length)  {
+    if (array === void 0 || !array.length)  {
         return null;
     }
 
@@ -215,7 +215,7 @@ const findMaxElemArray = array => {
 
 const findIndexOfMinElemArray = array => {
 
-    if (array === undefined || !array.length)  {
+    if (array === void 0 || !array.length)  {
         return null;
     }
 
@@ -237,7 +237,7 @@ const findIndexOfMinElemArray = array => {
 
 const findIndexOfMaxElemArray = array => {
 
-    if (array === undefined || !array.length)  {
+    if (array === void 0 || !array.length)  {
         return null;
     }
 
@@ -259,7 +259,7 @@ const findIndexOfMaxElemArray = array => {
 
 const sumOddElemArray = array => {
 
-    if (array === undefined || !array.length || array.length<2) {
+    if (array === void 0 || !array.length || array.length < 2) {
         return null;
     }
 
@@ -274,7 +274,7 @@ const sumOddElemArray = array => {
 
 const reverseArray = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -295,7 +295,7 @@ const reverseArray = array => {
 
 const amountOddElemArray = array => {
 
-    if (array === undefined || !array.length || array.length<2) {
+    if (array === void 0 || !array.length || array.length < 2) {
         return null;
     }
 
@@ -310,7 +310,7 @@ const amountOddElemArray = array => {
 
 const swapHalfArray = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -331,7 +331,7 @@ const swapHalfArray = array => {
 
 const arrayBubbleSort = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -356,7 +356,7 @@ const arrayBubbleSort = array => {
 //descending
 const arrayInsertSort = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -412,7 +412,7 @@ const part = (array, left, right) => {
 };
 const arrayQuickSort = (array, left, right) => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -507,7 +507,7 @@ const heapBranch = (array, i) => {
 
 const arrayHeapSort = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -552,15 +552,14 @@ const sliceArray = (array, startIndex, finishIndex) => {
 
         return newArray;
     }
-    else {
-        newArray = new Array(finishIndex - startIndex);
 
-        for (let i = 0, j = startIndex; i < newArray.length, j < finishIndex; i++, j++) {
-            newArray[i] = array[j];
-        }
+    newArray = new Array(finishIndex - startIndex);
 
-        return newArray;
+    for (let i = 0, j = startIndex; i < newArray.length, j < finishIndex; i++, j++) {
+        newArray[i] = array[j];
     }
+
+    return newArray;
 };
 
 const pushElem = (array, elem) => {
@@ -593,7 +592,7 @@ const merge = (first, second) => {
 
 const arrayMergeSort = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -634,17 +633,13 @@ const getDistanceBetweenTwoPoints = (startPoint, finishPoint) => {
 //extra homework
 const getTwoMinElem = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
-    if (array.length === 2) {
-        return array;
-    }
+    let min1 = array[0], min2 = array[0];
 
-    let min1 = array[0], min2;
-
-    let indexMin1 = 0;
+    let indexMin1;
 
     for (let i = 0; i <array.length; i++) {
 
@@ -655,10 +650,6 @@ const getTwoMinElem = array => {
 
     }
 
-    if (array.length === 1) {
-        return min1;
-    }
-
     let newArray = new Array(array.length - 1);
 
     let i = 0, j = 0;
@@ -666,21 +657,19 @@ const getTwoMinElem = array => {
     while (i < array.length) {
 
         if (i === indexMin1) {
-            ++i;
-        } else {
+            i++;
+        }
+        else {
             newArray[j] = array[i];
-
-            if (!min2 && min2 !== 0) {
-                min2 = newArray[0];
-            }
 
             if (newArray[j] < min2) {
                 min2 = newArray[j];
             }
-            console.log(min2, array[i], newArray[j]);
-            ++i;
-            ++j;
+
+            i++;
+            j++;
         }
+
     }
 
     for (let i = 0; i < newArray.length; i++) {
@@ -696,7 +685,7 @@ const getTwoMinElem = array => {
 
 const getAverageArray = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -711,7 +700,7 @@ const getAverageArray = array => {
 
 const getMaxColumnMatrix = matrix => {
 
-    if (matrix === undefined || !matrix.length) {
+    if (matrix === void 0 || !matrix.length) {
         return null;
     }
 
@@ -738,7 +727,7 @@ const getMaxColumnMatrix = matrix => {
 
 const getPositiveAndNegativeArrays = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -762,7 +751,7 @@ const getPositiveAndNegativeArrays = array => {
 
 const countSimpleArrayNumbers = array => {
 
-    if (array === undefined || !array.length) {
+    if (array === void 0 || !array.length) {
         return null;
     }
 
@@ -789,5 +778,3 @@ const countSimpleArrayNumbers = array => {
 
     return count;
 };
-
-console.log(getTwoMinElem([1, 2, 3, 4, 5]));
